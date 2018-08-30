@@ -1,4 +1,5 @@
 from django.db import models
+from pyuploadcare.dj.models import ImageField
 
 # Create your models here.
 
@@ -8,7 +9,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     about = models.TextField(max_length=255)
-    image = models.ImageField(upload_to='images/')
+    image = ImageField()
 
     def __str__(self):
         return '{}'.format(self.username)
@@ -21,7 +22,7 @@ class Projects(models.Model):
     username = models.ForeignKey(Profile)
     name = models.CharField(max_length=30)
     description = models.TextField()
-    image = models.ImageField(upload_to='images/')
+    image = ImageField()
     github_link = models.CharField(max_length=100, blank=True, null=True)
     live_link = models.CharField(max_length=100, blank=True, null=True)
 
