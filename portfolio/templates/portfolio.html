@@ -1,91 +1,141 @@
-{% extends 'base.html' %} {% load static %} {% load bootstrap4 %} {% block content %}
-<div class="text-centre" id="port">
-  <h1>Portfolio</h1>
-</div>
-<hr>
+{% extends 'base.html' %}
+{% load static %}
 
-<div class="row">
-  {% for prof in profile %}
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-    <!-- insertpicture -->
-    <img src="{% static 'css/images/mypic.JPG'%}" class="responsive-img" alt="Image" id="image">
+{% load bootstrap4 %}
 
-  </div>
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" id="about">
-
-    <h3>{{prof.first_name}} {{prof.last_name}}</h3>
-    <h5>{{prof.about}}</h5>
-    {% endfor %}
-  </div>
-</div>
-<hr>
-
-<div class="row">
-  <!-- skills,educ,jobexp,contacts -->
-  <div class="w3-card" id="skills">
-    <h4>Skills</h4>
-    {% for skill in skills %}
-    <li>{{skill.skill}}</li>
-    {% endfor %}
-    <hr>
-  </div>
-</div>
+{% block content %}
 
 
-<div class="row">
-  <div class="w3-card">
-    <h4>Education</h4>
-    {% for edu in education %}
-    <li>{{edu.institution}}</li>
-    {% endfor %}
-    <hr>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Materialize - Compiled and minified CSS-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css">
+    <!-- Font Awesome Icon - CSS-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Custom Styles-->
+    <link rel="stylesheet" href="{% static 'css/combined.min.css' %}">
+    <title>Karanja | Full Stack Developer</title>
+    <!-- Open Graph-->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Karanja | Full Stack Developer">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="andrewborstein.com">
+    <meta property="og:site_name" content="Karanja | Full Stack Developer">
+    <meta property="article:publisher" content="">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="Karanja | Full Stack Developer">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:url" content="">
 
-<div class="row">
-  <h3>Projects</h3>
-</div>
-<div class="row">
-  <h6>Below are some of the projects that I have done</h6>
-</div>
-<div class="row">
+  </head>
+  <body>
+    <!-- Navigation Menu-->
+    <nav class="hide-on-small-only">
+      <ul class="side-nav fixed section table-of-contents">
+        <li class="logo"><a id="logo-container" aria-label="Navigate to the beginning of the page" href="#intro" class="brand-logo teal-text">
+            <h1><b>Ephantus</b><span class="brown-text light">Full Stack Developer</span></h1></a></li>
+        <li class="bold"><a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i class="mdi-social-person small"></i><span>About</span></a></li>
+        <li class="bold"><a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark indigo-text"><i class="mdi-av-web small"></i><span>Projects</span></a></li>
+        <li class="bold"><a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark purple-text"><i class="mdi-av-equalizer small"></i><span>Skills</span></a></li>
+      </ul>
+    </nav>
+    <nav class="hide-on-large only trigger z-depth-1"><a aria-label="Toggle visibility of the mobile navbar" href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <div class="name-title"><a id="name" aria-label="Navigate to the beginning of the page" href="#main" class="teal-text">Karanja</a><span class="brown-text light">Full Stack Developer</span></div>
+    </nav>
+    <nav class="hide-on-large only">
+      <ul id="slide-out" class="side-nav">
+        <li class="bold"><a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i class="mdi-social-person small"></i><span>About</span></a></li>
+        <li class="bold"><a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark indigo-text"><i class="mdi-av-web small"></i><span>Projects</span></a></li>
+        <li class="bold"><a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark purple-text"><i class="mdi-av-equalizer small"></i><span>Skills</span></a></li>
+      </ul>
+    </nav>
+    <!-- Main Content-->
+    <main>
+      <section id="intro" class="section scrollspy full-height">
+      </section>
+      <section id="about" class="section scrollspy">
+        <h3 class="page-title white-text teal text-center">About</h3>
+        <div class="container flow-text">
+          <blockquote>
+            <h2>Mission-driven full stack developer with a passion for backend development and collaboration.</h2>
+          </blockquote>
+          <p>I’ve always sought out opportunities and challenges that are meaningful to me. A full-stack web developer who is a recent graduate of Moringa school where I have been studying full-stack web development. I am also a computer science graduate of Kenyatta university. I have specialised in Python and JavaScript.</p>
+          <p>As a web developer, I enjoy using my obsessive attention to detail, my unequivocal love for making things, and my mission-driven work ethic to literally change the world. That's why I’m excited to make a big impact at a high growth company.</p>
+        </div>
 
-  {% for project in projects %}
+      <section id="projects" class="section scrollspy">
+        <h3 class="page-title white-text teal text-center">Projects</h3>
+        <div class="container">
+          <div class="row">
+              {% for project in projects %}
+            <div class="col s12 m6 l4">
+              <div class="card medium">
+                <div class="card-image waves-effect waves-block waves-light"><img src="{{project.image.url }}"  alt="image" class="activator"></div>
+                <div class="card-content"><span class="card-title activator teal-text hoverline">    <h4>{{project.name}}</h4><i class="mdi-navigation-more-vert right"></i></span>
+                  <p>{{project.description}}.</p>
+                </div>
+                <div class="card-reveal"><span class="card-title brown-text">Technologies Used<i class="mdi-navigation-close right"></i></span>
+                  <ul>
+                    <li><strong>Django</strong> backend</li>
+                    <li><strong> CSS</strong> frontend</li>
+                    <li>User <strong>authentication</strong> django auth</li>
+                  </ul>
+                  <div class="card-action"><a aria-label="" href="{{ project.Live_link}}" target="_blank" data-position="top"
+                                              data-tooltip="View on git" class="btn-floating btn-large waves-effect waves-light brown tooltipped">
+                      <i class="fa fa-external-link"></i></a><a aria-label="Visit the GitHub repo for Code Island project" href="{{ project.github_link}}"
+                                                                target="_blank" data-position="top" data-tooltip="View Source"
+                                                                class="btn-floating btn-large waves-effect waves-light brown tooltipped"><i class="fa fa-github"></i></a></div>
+                </div>
+              </div>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+      </section>
 
-  <div class="w3-card" id="projects">
-    <br>
-    <h4>{{project.name}}</h4>
-    <img src="{{project.image.url }}" class="thumbnail" alt="image" width="700px;">
-    <hr>
-    <p>{{project.description}}</p>
-    <a href="{{project.github_link}}">
-      <button type="button">View-on_Github</button>
-    </a>
-    {% if project.live_link %}
-    <a href="{{project.live_link}}">
-      <button type="button">Live-link</button>
-    </a>
-    {% endif %}
 
-  </div>
+      <section id="skills" class="section scrollspy">
+        <h3 class="page-title white-text teal text-center">Skills</h3>
+        <div class="container">
+          <div class="card">
+            <div class="card-content">
+              <h4 class="brown-text light">HTML</h4>
+              <div class="row text-center">
+                <div class="col s4 m2">
+                    <i class="fab fa-python fa-3x"></i>Python
+                </div>
+                  <div class="col s4 m2">
+                    <i class="fab fa-js fa-3x"></i>JavaScript
+                </div>
+                  <div class="col s4 m2">
+                    <i class="fab fa-git fa-3x"></i>
+                </div>
+                  <div class="col s4 m2">
+                    <i class="fab fa-angular fa-3x"></i>AngularJS
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  {% endfor %}
-</div>
-<hr>
-<div class="row">
-  <div class="w3-card">
-    <h4>Contacts</h4>
-    {% for contact in contacts %}
-    <li>
-      <i class="fas fa-envelope fa-2x"></i> ephantusslogan@gmail.com</li>
-    <li>
-      <a href="https://github.com/ephantuskaranja">
-        <i class="fab fa-github fa-3x"></i>
-      </a>
-    </li>
-    {% endfor %}
-  </div>
-</div>
+      </section>
+      </section>
 
+    </main>
+    <!-- jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Materialize - Compiled and minified JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+
+  </body>
+</html>
 
 {% endblock %}
+

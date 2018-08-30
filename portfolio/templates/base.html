@@ -13,6 +13,8 @@
   {% block styles %}
   {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
   {% endblock %}
   {% if title %}
   <title>{{title}}</title>
@@ -23,10 +25,33 @@
 </head>
 
 <body>
-  {% include 'navbar.html' %}
   <div class="container-fluid">
 
-    {% block content %} {% endblock %}
+    {% block content %}
+
+     {% endblock %}
+
+  <footer class="site-footer">
+    <div class="container">
+      <h3>
+        <span class="primary">Get In Touch</span>
+      </h3>
+      <div class="social-icons">
+        <a href="" target="_blank">
+          <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/ephantuskaranja" target="_blank">
+          <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:ephantusofficial@gmail.com" target="_blank">
+          <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+        </a>
+        <a href="www.linkedin.com/in/ephantuskaranja" target="_blank">
+          <i class="fab fa-linkedin-square fa-2x" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 
 
   </div>
