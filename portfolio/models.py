@@ -18,19 +18,33 @@ class Profile(models.Model):
         verbose_name_plural = 'Profile'
 
 
+
+class Technologies(models.Model):
+    tecs = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return '{}'.format(self.tecs)
+
+    class Meta:
+        verbose_name_plural = 'Technologies'
+
 class Projects(models.Model):
-    username = models.ForeignKey(Profile)
+    username = models.ForeignKey(Profile, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     description = models.TextField()
     image = ImageField()
     github_link = models.CharField(max_length=100, blank=True, null=True)
     live_link = models.CharField(max_length=100, blank=True, null=True)
+    tecs = models.ManyToManyField(Technologies)
+    
 
     def __str__(self):
-        return '{}'.format(self.username)
+        return '{}'.format(self.name)
 
     class Meta:
         verbose_name_plural = 'Projects'
+
+
 
 
 class Skills(models.Model):
